@@ -10,13 +10,10 @@ $quary_c = "CREATE TABLE Users
 )";
 
 $connect = new mysqli("127.0.0.1", "root", "", "testov");
-if (!$link) {
-    die('Ошибка соединения: ' . mysqli_connect_error());
-}
-if($_POST["type"] === "RESET"){
+print($_POST["type"]);
+if($_POST["type"] == "reset"){
     $connect->query($quary_d);
+	$connect->query($quary_c);
 }
-$connect->query($quary_c);
-
 $connect->close();
 ?>

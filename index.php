@@ -15,7 +15,37 @@
             </p>
         </div>
         <div class = "interface-main">
-
+            <div class = "table-div">
+                <table class = "table-usr">
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                    </tr>
+                </table>
+            </div>
+            <div class = "usr-panel">
+                <input  class = "usr-fnd-text" type = "text">
+                <select class = "usr-fnd-select">
+                    <option>Первый</option>
+                    <option>Второй</option>
+                    <option>Третий</option>
+                </select>
+                <button class = "usr-fnd-btn">Поиск</button>
+            </div>
+            <div class = "adm-panel">
+                
+            </div>
         </div>
     
     </body>
@@ -29,8 +59,8 @@
             $(".btn-admin").click(function(){
                 loadAdmin();
             });
-            $(".btn-admin").click(function(){
-                reset();
+            $(".btn-reset").click(function(){
+                resetTable();
             });
         })
     </script>
