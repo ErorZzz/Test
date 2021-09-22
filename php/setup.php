@@ -5,7 +5,7 @@ $quary_d = "DROP TABLE Users";
 $quary_c = "CREATE TABLE Users
 (	id INT(11) NOT NULL AUTO_INCREMENT,
 	fio VARCHAR(50) NOT NULL,
-	userStatus INT(1),
+	stat VARCHAR(10),
 	CONSTRAINT pk PRIMARY KEY (id)
 )";
 

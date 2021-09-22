@@ -6,17 +6,13 @@ function loadData(){
         async:false
     }).done(function(data){
         responce = data;
-        console.log(data);
-        console.log(responce);
     });
-    console.log(responce);
     var o = JSON.parse(responce);
     var res = []; 
     var r  = "";
     for(var i in o){   
-         r += "<tr><td>"+o[i].id+"</td><td>"+o[i].fio+"</td><td>"+o[i].userStatus+"</td></tr>";
+         r += "<tr><td>"+o[i].id+"</td><td>"+o[i].fio+"</td><td>"+o[i].stat+"</td></tr>";
     }
-    console.log(r);
     return r;
 
 }
@@ -29,11 +25,9 @@ function loadUser(){
    $(".usr-panel").show();
 }
 function resetTable(){
-    alert('call');
     $.ajax({
         url: 'php/setup.php',
         method: 'post',
         data: {type:'reset'},
-        success: function(data){}
     });
 }

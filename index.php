@@ -17,24 +17,12 @@
         <div class = "interface-main">
             <div class = "table-div">
                 <table class = "table-usr">
-                    <tr data = '1'>
-                        <td >39</td>
-                        <td data = '1'>1</td>
-                        <td data = '2'>2</td>
-                        <td data = '3'>3</td>
-                    </tr>
-                    <tr data = '2'>
-                        <td >40</td>
-                        <td data = '1'>1</td>
-                        <td data = '2'>2</td>
-                        <td data = '3'>3</td>
-                    </tr>
-                    <tr data = '3'>
-                        <td >41</td>
-                        <td data = '1'>1</td>
-                        <td data = '2'>2</td>
-                        <td data = '3'>3</td>
-                    </tr>
+                    <thead>
+
+                    </thead>
+                    <tbody>
+
+                    </tbody>
                 </table>
             </div>
             <div class = "usr-panel">
@@ -51,9 +39,9 @@
             <div class = "adm-panel">
                 <div class = "adm-add-usr">
                     <p>Добавление пользователей:</p>
-                    <p>Введите фио: <input type = "text"> <button class = ".adm-add-usr">Добавить пользователя</button> </p>
+                    <p>Введите фио: <input class = "adm-add-usr-txt" type = "text"> <button class = "adm-add-usr-btn">Добавить пользователя</button> </p>
                 </div>
-                <div class = "adm-chenge-usr">
+                <div class = "adm-change-usr">
                     <p>Редактирование пользователей:</p>
                     <p> Введите id пользователя: <input type = "text">  Введите новое имя пользователя: <input type="text"> 
                 </div>
@@ -64,8 +52,7 @@
     <script>
         $(document).ready(function(){
             var t = loadData();
-            console.log(t);
-            $(".table-usr").html(t);
+            $(".table-usr tbody").html(t);
             $(".btn-user").click(function(){
                 loadUser();
             });
@@ -79,8 +66,18 @@
                 var t = $(event.target)
                 alert(t.parent().children().first().text());
              });
-             $(".adm-add-usr").click(function(){
-
+             $(".usr-fnd-btn").click(function(){
+                console.log("aaa");
+             })
+             $(".adm-add-usr-btn").click(function(){
+                var fio = $(".adm-add-usr-txt").val();
+                if(fio && fio.trim() && str.length > 0){
+                    $.ajax({
+                        url: 'php/setup.php',
+                        method: 'post',
+                        data: {type:'reset'},
+    });
+                }
              })
             
         })
