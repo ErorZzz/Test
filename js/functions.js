@@ -1,15 +1,32 @@
-function loadData(){}
-function loadAdmin(){
+function loadData(){
+    var responce; 
+    $.ajax({
+        url: 'php/load_data.php',
+        method: 'post',
+        async:false
+    }).done(function(data){
+        responce = data;
+        console.log(data);
+        console.log(responce);
+    });
+    console.log(responce);
+    var o = JSON.parse(responce);
+    var res = []; 
+    var r  = "";
+    for(var i in o){   
+         r += "<tr><td>"+o[i].id+"</td><td>"+o[i].fio+"</td><td>"+o[i].userStatus+"</td></tr>";
+    }
+    console.log(r);
+    return r;
 
 }
+function loadAdmin(){
+    $(".usr-panel").hide();
+    $(".adm-panel").show();
+}
 function loadUser(){
-    // $.ajax({
-    //     url: 'php/loadUsers.php',
-    //     method: 'post',
-    //     success: function(data){$(".interface-main").html(data);}
-    // });
-    
-
+   $(".adm-panel").hide();
+   $(".usr-panel").show();
 }
 function resetTable(){
     alert('call');

@@ -9,34 +9,39 @@
     <body> 
         <div class = "interface-changer">
             <p> 
-                <button class = "btn btn-user">User</button>
-                <button class = "btn btn-admin">Admin</button>
-                <button class = "btn btn-reset">Reset</button>
+                <button class = "btn btn-user">Пользователь</button>
+                <button class = "btn btn-admin">Админ</button>
+                <button class = "btn btn-reset">Ресет</button>
             </p>
         </div>
         <div class = "interface-main">
             <div class = "table-div">
                 <table class = "table-usr">
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
+                    <tr data = '1'>
+                        <td >39</td>
+                        <td data = '1'>1</td>
+                        <td data = '2'>2</td>
+                        <td data = '3'>3</td>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
+                    <tr data = '2'>
+                        <td >40</td>
+                        <td data = '1'>1</td>
+                        <td data = '2'>2</td>
+                        <td data = '3'>3</td>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
+                    <tr data = '3'>
+                        <td >41</td>
+                        <td data = '1'>1</td>
+                        <td data = '2'>2</td>
+                        <td data = '3'>3</td>
                     </tr>
                 </table>
             </div>
             <div class = "usr-panel">
+                <p>Поиск пользователей: </p>
                 <input  class = "usr-fnd-text" type = "text">
                 <select class = "usr-fnd-select">
+                    <option> </option>
                     <option>Первый</option>
                     <option>Второй</option>
                     <option>Третий</option>
@@ -44,17 +49,25 @@
                 <button class = "usr-fnd-btn">Поиск</button>
             </div>
             <div class = "adm-panel">
-                
+                <div class = "adm-add-usr">
+                    <p>Добавление пользователей:</p>
+                    <p>Введите фио: <input type = "text"> <button class = ".adm-add-usr">Добавить пользователя</button> </p>
+                </div>
+                <div class = "adm-chenge-usr">
+                    <p>Редактирование пользователей:</p>
+                    <p> Введите id пользователя: <input type = "text">  Введите новое имя пользователя: <input type="text"> 
+                </div>
             </div>
         </div>
     
     </body>
     <script>
         $(document).ready(function(){
-            loadUser();
+            var t = loadData();
+            console.log(t);
+            $(".table-usr").html(t);
             $(".btn-user").click(function(){
                 loadUser();
-
             });
             $(".btn-admin").click(function(){
                 loadAdmin();
@@ -62,6 +75,15 @@
             $(".btn-reset").click(function(){
                 resetTable();
             });
+            $(".table-usr").click(function(event) {
+                var t = $(event.target)
+                alert(t.parent().children().first().text());
+             });
+             $(".adm-add-usr").click(function(){
+
+             })
+            
         })
+        
     </script>
 </html>
