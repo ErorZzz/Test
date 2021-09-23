@@ -1,8 +1,12 @@
-function loadData(){
+//
+// Загрузка данных только в таблицу!!!
+function loadData(fio = "%", status = "%"){
     var responce; 
+    let f = fio; let s = status;
     $.ajax({
         url: 'php/load_data.php',
         method: 'post',
+        data: {fio:f, status:s,},
         async:false
     }).done(function(data){
         responce = data;
@@ -16,15 +20,9 @@ function loadData(){
     return r;
 
 }
-function loadAdmin(){
-    $(".usr-panel").hide();
-    $(".adm-panel").show();
-}
-function loadUser(){
-   $(".adm-panel").hide();
-   $(".usr-panel").show();
-}
-function resetTable(){
+
+//Пересоздают таблицу пользователей
+function resetTable(){ 
     $.ajax({
         url: 'php/setup.php',
         method: 'post',

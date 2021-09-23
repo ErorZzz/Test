@@ -9,11 +9,12 @@ $quary_c = "CREATE TABLE Users
 	CONSTRAINT pk PRIMARY KEY (id)
 )";
 
-$connect = new mysqli("127.0.0.1", "root", "", "testov");
+require_once("db_connect.php");
+$mysqli = new mysqli($adress,$usr,$pass,$db);
 print($_POST["type"]);
 if($_POST["type"] == "reset"){
-    $connect->query($quary_d);
-	$connect->query($quary_c);
+    $mysqli->query($quary_d);
+	$mysqli->query($quary_c);
 }
-$connect->close();
+$mysqli->close();
 ?>

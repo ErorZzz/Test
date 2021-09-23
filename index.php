@@ -41,9 +41,16 @@
                     <p>Добавление пользователей:</p>
                     <p>Введите фио: <input class = "adm-add-usr-txt" type = "text"> <button class = "adm-add-usr-btn">Добавить пользователя</button> </p>
                 </div>
-                <div class = "adm-change-usr">
+                <div class = "adm-edt-usr">
                     <p>Редактирование пользователей:</p>
-                    <p> Введите id пользователя: <input type = "text">  Введите новое имя пользователя: <input type="text"> 
+                    <p> ФИО выбраного пользователя: <input class = "adm-edt-usr-name" type = "text"></p>
+                    <p> Статус : <select class = "usr-fnd-select">
+                                    <option> </option>
+                                    <option>Первый</option>
+                                    <option>Второй</option>
+                                    <option>Третий</option>
+                                </select>
+                            </p>
                 </div>
             </div>
         </div>
@@ -54,30 +61,44 @@
             var t = loadData();
             $(".table-usr tbody").html(t);
             $(".btn-user").click(function(){
-                loadUser();
+                $(".adm-panel").hide();
+                $(".usr-panel").show();
             });
             $(".btn-admin").click(function(){
-                loadAdmin();
+                $(".usr-panel").hide();
+                $(".adm-panel").show();
             });
             $(".btn-reset").click(function(){
                 resetTable();
             });
             $(".table-usr").click(function(event) {
-                var t = $(event.target)
-                alert(t.parent().children().first().text());
+                if($(".adm-panel").is(":visible")){
+                    var t = $(event.target)
+                    alert(t.parent().children().first().text());
+
+                }
              });
              $(".usr-fnd-btn").click(function(){
-                console.log("aaa");
+                console.log($(".usr-fnd-text").val());
+                console.log($(".usr-fnd-select").val())
+                t = loadData($(".usr-fnd-text").val(),$(".usr-fnd-select").val());
+                console.log(t);
+                $(".table-usr tbody").html(t);
+                
              })
              $(".adm-add-usr-btn").click(function(){
                 var fio = $(".adm-add-usr-txt").val();
-                if(fio && fio.trim() && str.length > 0){
+                if(fio && fio.trim() && fio.length > 0){
                     $.ajax({
-                        url: 'php/setup.php',
+                        url: 'php/add_user.php',
                         method: 'post',
-                        data: {type:'reset'},
-    });
+                        async:false,
+                        data: {fio:fio}
+                    }).done(function(){});
                 }
+                t = loadData();
+                $(".table-usr tbody").html(t);
+                $(".adm-add-usr-txt").val("");
              })
             
         })
