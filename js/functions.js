@@ -20,12 +20,3 @@ function loadData(fio = "%", status = "%"){
     return r;
 
 }
-
-//Пересоздают таблицу пользователей
-function resetTable(){ 
-    $.ajax({
-        url: 'php/setup.php',
-        method: 'post',
-        data: {type:'reset'},
-    });
-}

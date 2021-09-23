@@ -44,45 +44,53 @@
                 <div class = "adm-edt-usr">
                     <p>Редактирование пользователей:</p>
                     <p> ФИО выбраного пользователя: <input class = "adm-edt-usr-name" type = "text"></p>
-                    <p> Статус : <select class = "usr-fnd-select">
-                                    <option> </option>
+                    <p> Статус : <select class = "usr-edt-select">
                                     <option>Первый</option>
                                     <option>Второй</option>
                                     <option>Третий</option>
                                 </select>
                             </p>
+                    <p><button class = "adm-edt-usr-button">Изменить данные</button>
                 </div>
             </div>
         </div>
     
     </body>
     <script>
+        var id = -1;
         $(document).ready(function(){
-            var t = loadData();
-            $(".table-usr tbody").html(t);
             $(".btn-user").click(function(){
                 $(".adm-panel").hide();
                 $(".usr-panel").show();
+                $(".table-usr tbody").html(loadData());
             });
             $(".btn-admin").click(function(){
                 $(".usr-panel").hide();
                 $(".adm-panel").show();
+                $(".table-usr tbody").html(loadData());
+                
             });
             $(".btn-reset").click(function(){
-                resetTable();
+                $.ajax({
+                    url: 'php/setup.php',
+                    method: 'post',
+                    data: {type:'reset'},
+                });
             });
             $(".table-usr").click(function(event) {
                 if($(".adm-panel").is(":visible")){
                     var t = $(event.target)
-                    alert(t.parent().children().first().text());
-
+                    id = parseInt(t.parent().children().first().text());
+                    t.parent().children().each(function(index,elem){
+                        switch(index){
+                            case 1: { $(".adm-edt-usr-name").val(($(elem).text())); break;}
+                            case 2: { $(".usr-edt-select").val(($(elem).text())); break;}
+                        }
+                    });
                 }
              });
              $(".usr-fnd-btn").click(function(){
-                console.log($(".usr-fnd-text").val());
-                console.log($(".usr-fnd-select").val())
                 t = loadData($(".usr-fnd-text").val(),$(".usr-fnd-select").val());
-                console.log(t);
                 $(".table-usr tbody").html(t);
                 
              })
@@ -94,14 +102,28 @@
                         method: 'post',
                         async:false,
                         data: {fio:fio}
-                    }).done(function(){});
+                    });
                 }
                 t = loadData();
                 $(".table-usr tbody").html(t);
                 $(".adm-add-usr-txt").val("");
              })
+             $(".adm-edt-usr-button").click(function(){
+                var fio = $(".adm-edt-usr-name").val();
+                var status = $(".usr-edt-select").val();
+                if(id !== -1 && (fio && fio.trim() && fio.length > 0) ){
+                        $.ajax({
+                        url: 'php/update_user.php',
+                        method: 'post',
+                        async:false,
+                        data: {id:id, fio:fio, status:status,}
+                    });
+                    $(".adm-edt-usr-name").val("")
+                    $(".usr-edt-select").val("");
+                    $(".table-usr tbody").html(loadData());
+                }
+             });
             
-        })
-        
+        });       
     </script>
 </html>

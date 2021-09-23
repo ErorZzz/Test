@@ -1,5 +1,4 @@
 <?php
-
 $quary_d = "DROP TABLE Users";
 //Запрос на создание таблицы
 $quary_c = "CREATE TABLE Users

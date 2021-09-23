@@ -10,7 +10,7 @@
         padding: 10px;
         border-color: #917b5c;
         background-color: #f8d3a0;
-        margin-top: 20px;
+        margin-top: 10px;
 }
 .btn {
     width: 100px;
@@ -47,7 +47,7 @@
 }
 
 .table-div{
-    height: 550px;
+    height: 500px;
     display: block;
     overflow-y: scroll;
     border: 2px solid #917b5c;
