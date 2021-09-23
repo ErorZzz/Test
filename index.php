@@ -72,11 +72,11 @@
                 
             });
             $(".btn-reset").click(function(){
-                $.ajax({
-                    url: 'php/setup.php',
-                    method: 'post',
-                    data: {type:'reset'},
-                });
+//                 $.ajax({
+//                     url: 'php/setup.php',
+//                     method: 'post',
+//                     data: {type:'reset'},
+//                 });
             });
             $(".table-usr").click(function(event) {
                 if($(".adm-panel").is(":visible")){
