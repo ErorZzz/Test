@@ -3,7 +3,7 @@
 if($_POST["fio"] != ""){
     require_once("db_connect.php");
     $mysqli = new mysqli($adress,$usr,$pass,$db);
-    $quary = "UPDATE users SET fio = '".$_POST["fio"]."', stat = '".$_POST["status"]."' WHERE id = ".$_POST["id"].";";
+    $quary = "UPDATE Users SET fio = '".$_POST["fio"]."', stat = '".$_POST["status"]."' WHERE id = ".$_POST["id"].";";
     $mysqli->query($quary);
     $mysqli->close();
 }
