@@ -9,7 +9,7 @@
         <script src="js/functions.js"></script>
         <title>Тестовое задание</title>
     </head>
-    <body> 
+    <body style="background-color: #f8d3a0;"> 
         <div class = "container-fluid interface-changer">
             <div class="btn-group">
                 <button class = "btn-user btn btn-outline-dark">Пользователь</button>
@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class = "container-fluid interface-main">
-            <div class = "border border-dark container-fluid table-div">
+            <div class = "container-fluid table-div">
                 <table class = "table table-bordered table-hover table-usr">
                     <thead>
                         <th>Имя</th>
@@ -29,41 +29,85 @@
                 </table>
             </div>
             <div class = "container-fluid usr-panel">
-                <p>Поиск пользователей: </p>
-                <div class="contianer-flud row" style="margin-bottom: 10px;"> 
-                <div class="col-sm"> <input  class = "input-group-text usr-fnd-text" type = "text" style="width: 100%;"></div>
-                <div class="col-sm">
-                <select class = "form-select usr-fnd-select">
-                    <option> </option>
-                    <option>Первый</option>
-                    <option>Второй</option>
-                    <option>Третий</option>
-                </select>
+                <p class = "h4">Поиск пользователей: </p>
+                <div class="contianer-fluid row" style="margin-bottom: 2px;">
+                    <div class="col-sm">
+                        <p class="h6"> ФИО (либо начало ФИО):</p>
+                    </div>
+                    <div class="col-sm">
+                        <p class="h6"> Статус : </p>
+                    </div>
                 </div>
+                <div class="contianer-fluid row" style="margin-bottom: 10px;"> 
+                    <div class="col-sm"> 
+                        <input  class = "input-group-text border border-dark text-start usr-fnd-text" type = "text" style="width: 100%;">
+                    </div>
+                    <div class="col-sm">
+                        <select class = "form-select border border-dark usr-fnd-select">
+                            <option> </option>
+                            <option>Первый</option>
+                            <option>Второй</option>
+                            <option>Третий</option>
+                        </select>
+                    </div>
                 </div>
                 <button class = "btn btn-outline-dark usr-fnd-btn">Поиск</button>
             </div>
             <div class = "container-fluid adm-panel">
-                <div class = "border border-dark container-fluid adm-add-usr">
-                    <p>Добавление пользователей:</p>
-                    <p>Введите фио: <input class = "border border-dark input-group-text adm-add-usr-txt" type = "text" style="margin-bottom: 10px;"> 
-                    <button class = "btn btn-outline-dark adm-add-usr-btn">Добавить пользователя</button> </p>
-                </div>
-                <div class = "border border-dark container-fluid adm-edt-usr">
-                    <p>Редактирование пользователей:</p>
-                    <p> ФИО выбраного пользователя: <input class = "border border-dark input-group-text adm-edt-usr-name" type = "text"></p>
-                    <p> Статус : <select class = "border border-dark form-select usr-edt-select">
+                <div class="row">
+                    <div class = "container col-sm adm-add-usr">
+                        <p class = "h4">Добавление пользователей:</p>
+                        <div class="container-fluid row">
+                            <div class = "col-sm">
+                                <p class="h6">Введите ФИО:</p>
+                            </div>
+                            <div class = "col-sm"></div>
+                        </div>
+                        <div class="container-fluid row">
+                            <div class="col-sm" style="margin-bottom: 10px;"> 
+                            <input class = "input-group-text border border-dark text-start adm-add-usr-txt" type = "text" > 
+                            </div>
+                            <div class = "col-sm"></div>
+                        </div>
+                        <div class="container-fluid row">
+                            <div class="col-sm" style="margin-bottom: 10px;"> 
+                                <button class = "btn btn-outline-dark adm-add-usr-btn">Добавить пользователя</button>
+                            </div>
+                            <div class = "col-sm"></div>
+                        </div>
+                    </div>
+                    <div class = "container col-sm adm-edt-usr">
+                        <p class = "h4">Редактирование пользователей:</p>
+                        <div class = "container-fluid row">
+                            <div class="col-sm">
+                                <p class="h6"> ФИО выбраного пользователя:</p>
+                            </div>
+                            <div class="col-sm">
+                                <p class="h6"> Статус : </p>
+                            </div>
+                        </div>
+                        <div class = "container-fluid row">
+                            <div class="col-sm">
+                                <input class = "input-group-text border border-dark text-start adm-edt-usr-name" type = "text">
+                            </div>
+                            <div class="col-sm">
+                                <select class = "form-select border border-dark usr-edt-select">
                                     <option>Первый</option>
                                     <option>Второй</option>
                                     <option>Третий</option>
                                 </select>
-                            </p>
-                    <p><button class = "btn btn-outline-dark adm-edt-usr-button">Изменить данные</button>
-                    <p>Для изменения данных пользователя необходимо кликнуть по нужному пользователю в таблице.</p>
+                            </div>
+                        </div>
+                        <div class = "container-fluid row" style="margin-top: 10px;">
+                            <div class="col-sm" >
+                                <button class = "btn btn-outline-dark adm-edt-usr-button">Изменить данные</button>
+                            </div>
+                        </div>
+                        <div class="conteiner-fluid text-muted" style="margin-top: 10px;">Для изменения данных пользователя необходимо кликнуть по нужному пользователю в таблице.</div>
+                    </div>
                 </div>
             </div>
         </div>
-    
     </body>
     <script>
         var id = -1;

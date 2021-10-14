@@ -15,14 +15,14 @@
     width: 100%;
 } */
 
-.usr-panel{
+div.usr-panel{
     margin-top: 25px;
     padding: 10px;
     border: 2px solid #917b5c;
     display: none;
 }
 
-.adm-panel{
+div.adm-panel{
     margin-top: 25px;
     padding: 10px;
     border: 2px solid #917b5c;
@@ -33,20 +33,16 @@
     height: 500px;
     display: block;
     overflow-y: scroll;
-    /* border: 2px solid #917b5c; */
+    border: 2px solid #917b5c;
 }
 
-.container-fluid.adm-add-usr{
-    background-color: rgb(252, 216, 166);
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-}
-.container-fluid.adm-edt-usr{
-    background-color: rgb(252, 216, 166);
-    margin:10px,0px,10px,0px;
-    padding-bottom: 10px;
+.btn.btn-reset{
+    background-color:#ff6666;
 }
 
+table.table tr {
+    border-color: #917b5c;
+}
 
 /****************************************************/
 body{
@@ -56,19 +52,7 @@ td:first-child{
     display: none;
 } 
 
-.btn.btn-user{
-    background-color: #fff1dd;
-}
-.btn.btn-admin{
-    background-color: #fff1dd;
-}
-.btn.btn-reset{
-    background-color:#ff6666;
-}
 
-table.table tr {
-    border-color: black;
-}
 button.btn{
-    background-color: #fff;
+    background-color: #fff1dd;
 }
